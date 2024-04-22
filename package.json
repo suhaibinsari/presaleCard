@@ -11,7 +11,13 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "viem": "^1.21.3",
+    "wagmi": "^1.4.12",
+    "ether": "^0.0.9",
+    "@web3modal/ethereum": "^2.7.1",
+    "@web3modal/wagmi": "^3.5.3"
+
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

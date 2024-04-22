@@ -1,5 +1,20 @@
+import { useCallback } from "react";
+
+import { useWeb3Modal } from "@web3modal/wagmi/react";
+import { useAccount } from "wagmi";
+
+
 
 export default function card() {
+    const { address } = useAccount();
+
+    const { open } = useWeb3Modal();
+    const connectionHandler = useCallback(() => {
+        if (address) {
+          return open();
+        }
+        open();
+      }, [address, open]);
     return (
         <>
             <div className="flex text-center items-center justify-center ">
@@ -41,16 +56,16 @@ export default function card() {
 
                     <div className="flex items-start justify-start flex-col">
                         <p>Amount in <span className="font-bold">BNB </span>you pay:</p>
-                        <input type="text" name="" id=""  className="w-full rounded-md p-2"/>
+                        <input type="text" name="" id="" className="w-full rounded-md p-2" />
                     </div>
                     <div className="flex items-start justify-start flex-col">
                         <p>Amount in <span className="font-bold">ABC </span>you receive:</p>
-                        <input type="text" name="" id=""  className="w-full rounded-md p-2"/>
+                        <input type="text" name="" id="" className="w-full rounded-md p-2" />
                     </div>
 
 
 
-                    <button className=" rounded-xl p-4 px-16 bg-green-700 text-white">Connect Wallet</button>
+                    <button onClick={connectionHandler}  className=" rounded-xl p-4 px-16 bg-green-700 text-white">Connect Wallet</button>
 
                 </div>
             </div>
