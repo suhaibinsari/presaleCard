@@ -6,12 +6,7 @@ import { createWeb3Modal } from "@web3modal/wagmi/react";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
 import { bscTestnet, bsc } from "viem/chains";
 import { w3mConnectors, w3mProvider } from "@web3modal/ethereum";
-
-
-
-
 const projectId = "d723ba02a9f43eaa7a22d24b846ee603";
-
 
 const metadata = {
   name: "ABCCOIN",
@@ -21,7 +16,7 @@ const metadata = {
 };
 
 
-const chains = [bsc];
+const chains = [bscTestnet];
 const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
 
 const wagmiConfig = createConfig({
